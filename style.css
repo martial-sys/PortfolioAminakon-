@@ -1,0 +1,601 @@
+/* ========================================= */
+/* 0. RESET & GLOBAL SETTINGS                */
+/* ========================================= */
+:root {
+    --color-primary: #2563EB;
+    --color-secondary: #1E40AF;
+    --font-family-primary: 'Poppins', sans-serif;
+    --color-background: #FFFFFF;
+    --color-surface: #F8FAFC;
+    --color-text-primary: #1E293B;
+    --color-text-secondary: #475569;
+    --color-border: #E2E8F0;
+    --color-background-dark: #111827;
+    --color-surface-dark: #1F2937;
+    --color-text-primary-dark: #F9FAFB;
+    --color-text-secondary-dark: #9CA3AF;
+    --color-border-dark: #374151;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+    font-family: var(--font-family-primary);
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    background-color: var(--color-background);
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* AMÉLIORATION : Ajout de transitions pour la fluidité du mode sombre */
+h1, h2, h3, h4, .logo-prestige span, .main-nav a, .testimonial-text, .author-name, .author-title {
+    transition: color 0.3s ease;
+}
+.header-prestige, .skill-category, .project-card, .testimonial-card, body.dark-mode .main-nav {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+/* Fin de l'amélioration */
+
+h1, h2, h3, h4 { color: var(--color-text-primary); font-weight: 700; line-height: 1.2; }
+h1 { font-size: 3rem; }
+h2.section-title { font-size: 2rem; margin-bottom: 32px; position: relative; display: inline-block; }
+h2.section-title::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 3px;
+    bottom: -10px;
+    left: 0;
+    background-color: var(--color-primary);
+}
+
+a { color: var(--color-primary); text-decoration: none; transition: all 0.3s ease; }
+a:hover { color: var(--color-secondary); }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+.btn {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+.btn-primary { background-color: var(--color-primary); color: white; }
+.btn-primary:hover { background-color: var(--color-secondary); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2); }
+.btn-secondary { border: 2px solid var(--color-primary); color: var(--color-primary); }
+.btn-secondary:hover { background-color: var(--color-primary); color: white; }
+
+main { margin-top: 73px; }
+section { padding: 80px 0; }
+section:nth-child(even) { background-color: var(--color-surface); }
+
+/* ========================================= */
+/* 1. HEADER & NAVIGATION                     */
+/* ========================================= */
+.header-prestige {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+}
+.logo-prestige { display: flex; align-items: center; gap: 12px; }
+.logo-prestige img { height: 40px; }
+.logo-prestige span { font-size: 1.3em; font-weight: 600; color: var(--color-text-primary); }
+
+.main-nav ul { display: flex; list-style: none; gap: 32px; margin: 0; padding: 0;}
+.main-nav a { color: var(--color-text-primary); font-weight: 500; position: relative; padding-bottom: 8px; }
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+}
+.main-nav a:hover::after,
+.main-nav a.active::after { width: 100%; }
+
+.mobile-menu-btn {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--color-text-primary);
+}
+.theme-switcher { display: flex; align-items: center; gap: 8px; color: var(--color-text-secondary); }
+.switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; }
+.slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; transition: .4s; }
+input:checked + .slider { background-color: var(--color-primary); }
+input:checked + .slider:before { transform: translateX(20px); }
+.slider.round { border-radius: 24px; }
+.slider.round:before { border-radius: 50%; }
+
+/* ========================================= */
+/* 2. HERO                                    */
+/* ========================================= */
+.hero-prestige {
+    min-height: calc(100vh - 73px);
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+}
+.hero-content { display: flex; align-items: center; justify-content: space-between; gap: 48px; }
+.hero-text { flex: 1; max-width: 600px; }
+.hero-intro { color: var(--color-primary); font-weight: 600; margin-bottom: 16px; }
+.hero-text h1 { font-weight: 800; margin-bottom: 24px; }
+.hero-description { font-size: 1rem; margin-bottom: 32px; }
+.hero-cta { display: flex; gap: 16px; }
+.hero-image { flex-shrink: 0; }
+.blob-shape {
+    width: 280px;
+    height: 280px;
+    background: linear-gradient(45deg, var(--color-primary), #60A5FA);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: morph 12s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.blob-shape img { width: 90%; height: 90%; object-fit: cover; border-radius: 50%; }
+@keyframes morph {
+    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: rotate(5deg); }
+    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+/* ========================================= */
+/* 3. ABOUT                                   */
+/* ========================================= */
+.about-content { display: flex; gap: 48px; align-items: center; }
+.about-text { flex: 1; }
+.about-text h3 { font-size: 1.5em; margin-bottom: 16px; }
+.about-text p { margin-bottom: 24px; }
+
+/* ========================================= */
+/* 4. SKILLS                                  */
+/* ========================================= */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
+}
+.skill-category {
+    background-color: white;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.skill-category h3 { margin-bottom: 12px; font-size: 1.2rem; }
+.skill-category ul { list-style-type: none; margin: 0; padding: 0; }
+.skill-category li { margin-bottom: 8px; display: flex; align-items: center; }
+.skill-category li::before {
+    content: "✓";
+    color: var(--color-primary);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-right: 8px;
+}
+
+/* ========================================= */
+/* 5. PROJECTS                                */
+/* ========================================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+.project-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.project-img { height: 180px; background-color: var(--color-border); overflow: hidden; }
+.project-img img { width: 100%; height: 100%; object-fit: cover; }
+.project-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+.project-info h3 { margin-bottom: 8px; }
+.project-info p { font-size: 0.95rem; margin-bottom: 16px; flex-grow: 1; }
+.project-links { display: flex; gap: 12px; margin-top: auto; }
+
+/* ========================================= */
+/* 6. TESTIMONIALS                           */
+/* ========================================= */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+}
+.testimonial-card {
+    background-color: var(--color-surface); /* Inversion pour contraste */
+    padding: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.testimonial-text {
+    font-style: italic;
+    color: var(--color-text-primary);
+    margin: 0 0 24px 0;
+    flex-grow: 1;
+    position: relative;
+    padding-left: 20px;
+}
+.testimonial-text::before {
+    content: '“';
+    font-family: Georgia, serif;
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--color-primary);
+    opacity: 0.15;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+}
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: auto;
+}
+.author-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-border);
+}
+.author-name {
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+.author-title {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* ========================================= */
+/* 7. CONTACT                                 */
+/* ========================================= */
+#contact { text-align: center; }
+.section-intro-portfolio { max-width: 600px; margin: 0 auto 32px auto; }
+.contact-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.contact-btn {
+    font-size: 1em;
+    padding: 12px 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ========================================= */
+/* 8. FOOTER                                  */
+/* ========================================= */
+.footer-prestige { background-color: var(--color-text-primary); color: white; padding: 40px 24px; text-align: center; }
+.social-icons { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
+.social-icon { color: white; font-size: 1.4rem; }
+.social-icon:hover { color: #9CA3AF; }
+.footer-links { margin-bottom: 20px; }
+.footer-links a { margin: 0 12px; color: white; font-weight: 500; }
+.footer-links a:hover { color: #9CA3AF; }
+.copyright { font-size: 0.85rem; color: #9CA3AF; }
+
+/* ========================================= */
+/* 9. DARK MODE                               */
+/* ========================================= */
+body.dark-mode {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-secondary-dark);
+}
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4,
+.dark-mode .logo-prestige span, .dark-mode .main-nav a {
+    color: var(--color-text-primary-dark);
+}
+.dark-mode .header-prestige { background-color: rgba(17, 24, 39, 0.85); border-bottom-color: var(--color-border-dark); }
+.dark-mode .main-nav { background-color: var(--color-background-dark); }
+.dark-mode section:nth-child(even) { background-color: var(--color-surface-dark); }
+.dark-mode .hero-prestige { background: linear-gradient(135deg, #111827, #1E2937); }
+.dark-mode .skill-category, .dark-mode .project-card, .dark-mode .testimonial-card {
+    background-color: var(--color-surface-dark);
+    border-color: var(--color-border-dark);
+}
+.dark-mode .btn-secondary { color: var(--color-primary); border-color: var(--color-primary); }
+.dark-mode .btn-secondary:hover { background-color: var(--color-primary); color: var(--color-text-primary-dark); }
+.dark-mode .footer-prestige { background-color: var(--color-background-dark); border-top: 1px solid var(--color-border-dark); }
+.dark-mode #testimonials {
+    background-color: var(--color-background-dark);
+}
+.dark-mode .testimonial-card {
+    background-color: var(--color-surface-dark);
+    border-color: var(--color-border-dark);
+}
+.dark-mode .testimonial-text, .dark-mode .author-name {
+    color: var(--color-text-primary-dark);
+}
+.dark-mode .author-title {
+    color: var(--color-text-secondary-dark);
+}
+
+/* ========================================= */
+/* 10. MEDIA QUERIES (MOBILE < 768px)          */
+/* ========================================= */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2.section-title { font-size: 1.8rem; }
+    
+    .mobile-menu-btn { display: block; z-index: 1100; }
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 73px; left: 0;
+        background-color: var(--color-background);
+        width: 100%;
+        text-align: center;
+        padding: 16px 0;
+        border-top: 1px solid var(--color-border);
+        z-index: 1000;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    .main-nav.active { display: block; }
+    .main-nav ul { flex-direction: column; gap: 16px; }
+
+    .hero-content, .about-content { flex-direction: column; text-align: center; gap: 32px; }
+    .hero-text { max-width: 100%; order: 2; }
+    .hero-image { order: 1; }
+    .hero-cta { justify-content: center; }
+    .blob-shape { width: 220px; height: 220px; }
+    
+    .skills-container, .projects-grid, .testimonials-grid { gap: 20px; }
+    section { padding: 60px 0; }
+}
+
+/* ========================================= */
+/* 11. ACCESSIBILITÉ                          */
+/* ========================================= */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--color-primary);
+    color: white;
+    padding: 12px;
+    z-index: 1100;
+    transition: top 0.3s;
+}
+.skip-link:focus {
+    top: 0;
+}
+
+.btn:focus-visible, .social-icon:focus-visible, .main-nav a:focus-visible, .back-to-top:focus-visible {
+    outline: 3px solid var(--color-secondary);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* ========================================= */
+/* 12. BOUTON RETOUR EN HAUT                 */
+/* ========================================= */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background-color 0.3s;
+    z-index: 900;
+}
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.back-to-top:hover {
+    background-color: var(--color-secondary);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* ========================================= */
+/* 13. MICRO-INTERACTIONS                    */
+/* ========================================= */
+.skill-category:hover, .project-card:hover, .testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+.dark-mode .skill-category:hover, .dark-mode .project-card:hover, .dark-mode .testimonial-card:hover {
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+/* ========================================= */
+/* 14. PATCH DE STABILITÉ RESPONSIVE         */
+/* ========================================= */
+
+/* 1. Contrôle de l'inflation textuelle */
+/* Force les navigateurs mobiles à respecter notre design sans modification autonome. */
+html {
+    -webkit-text-size-adjust: 100%; /* Pour Chrome, Safari, etc. */
+    -ms-text-size-adjust: 100%;     /* Pour anciennes versions d'IE Mobile */
+    text-size-adjust: 100%;         /* Syntaxe standard */
+}
+
+/* 2. Affinement pour les écrans très étroits (inférieurs à 480px) */
+/* Ajoute un point de rupture pour garantir un design équilibré sur les plus petits téléphones. */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.2rem; /* Réduction supplémentaire pour un meilleur équilibre */
+    }
+
+    .btn {
+        padding: 9px 20px;
+        font-size: 0.9rem;
+    }
+
+    .contact-btn {
+        width: 100%; /* Occupe toute la largeur pour une meilleure ergonomie */
+        justify-content: center;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr; /* Assure que les témoignages ne sont jamais trop à l'étroit */
+    }
+}
+
+/* =================================================== */
+/* 15. STYLE DU CARROUSEL (VERSION FINALE & COMPLÈTE)  */
+/* =================================================== */
+
+.testimonial-swiper {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 40px 50px 40px;
+    position: relative;
+}
+
+.testimonial-swiper .swiper-slide {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5px; /* Petit espace pour l'ombre portée */
+}
+
+/* RESTAURATION COMPLÈTE DE LA CARTE */
+.testimonial-card {
+    /* Styles de base restaurés */
+    background-color: var(--color-surface);
+    padding: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* Organisation interne pour aligner l'auteur en bas */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    /* Contrôle de la taille */
+    width: 100%;
+    max-width: 450px;
+}
+
+.testimonial-text {
+    flex-grow: 1; /* Pousse l'auteur vers le bas */
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+
+.dark-mode .testimonial-card {
+    background-color: var(--color-surface-dark);
+    border-color: var(--color-border-dark);
+}
+.dark-mode .testimonial-card:hover {
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* Styles pour les flèches et la pagination */
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--color-primary);
+}
+.swiper-pagination-bullet-active {
+    background: var(--color-primary);
+}
+
+/* Gestion du mode sombre pour la pagination */
+.dark-mode .swiper-pagination-bullet {
+    background: var(--color-border-dark);
+    opacity: 0.7;
+}
+.dark-mode .swiper-pagination-bullet-active {
+    background: var(--color-primary);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none;
+    }
+    .testimonial-swiper {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+
+/* =================================================== */
+/* 16. PATCH DE FINITION : MODE SOMBRE & ALIGNEMENT    */
+/* =================================================== */
+
+/* Règle #1 : Visibilité des points du carrousel en mode sombre */
+.dark-mode .swiper-pagination-bullet {
+    background: var(--color-border-dark);
+    opacity: 0.7;
+}
+
+/* Règle #2 : Centrage de l'underline pour le titre de la section Contact */
+#contact h2.section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Règle #3 : Assure que la boule active reste bleue en mode sombre */
+.dark-mode .swiper-pagination-bullet-active {
+    background: var(--color-primary);
+    opacity: 1;
+}
