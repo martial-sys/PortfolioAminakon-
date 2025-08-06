@@ -1,187 +1,63 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Portfolio | Amina Koné</title>
-  <meta name="description" content="Je construis des ponts entre votre savoir-faire artisanal et votre public digital.">
-  <meta property="og:title" content="Portfolio | Amina Koné">
-  <meta property="og:description" content="Je construis des ponts entre votre savoir-faire artisanal et votre public digital.">
-  <meta property="og:image" content="https://i.postimg.cc/DZbLWMNQ/file-000000000870623092ddda64044457d7.png">
-  <meta property="og:type" content="website">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
-  <link rel="stylesheet" href="style.css">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-  <script src="script.js" defer></script>
- 
- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
- 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Portfolio Prestige</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style-generateur.css">
 </head>
-
 <body>
-
-  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
-
-  <header class="header-prestige">
-      <div class="container header-container">
-          <div class="logo-prestige">
-              <img src="https://i.postimg.cc/0yvG60sL/file-00000000848c61f8a4258e05177b8d23.png" alt="Logo de Amina Koné">
-              <span>Amina Koné</span>
-          </div>
-          <nav class="main-nav">
-              <ul>
-                  <li><a href="#hero" class="active">Accueil</a></li>
-                  <li><a href="#about">À propos</a></li>
-                  <li><a href="#skills">Compétences</a></li>
-                  <li><a href="#projects">Projets</a></li>
-                  <li><a href="#testimonials">Témoignages</a></li>
-                  <li><a href="#contact">Contact</a></li>
-              </ul>
-          </nav>
-          <div class="theme-switcher">
-              <i class="fas fa-sun"></i>
-              <label class="switch">
-                  <input type="checkbox" id="theme-toggle">
-                  <span class="slider round"></span>
-              </label>
-              <i class="fas fa-moon"></i>
-          </div>
-          <button class="mobile-menu-btn" aria-label="Ouvrir le menu">☰</button>
-      </div>
-  </header>
-  
-  <main id="main-content">
-    <section class="hero-prestige" id="hero">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <p class="hero-intro" data-aos="fade-down">Stratège en Contenu Digital</p>
-                <h1 data-aos="fade-down" data-aos-delay="200">Amina Koné</h1>
-                <p class="hero-description" data-aos="fade-down" data-aos-delay="400">
-                    Je construis des ponts entre votre savoir-faire artisanal et votre public digital.
-                </p>
-                <div class="hero-cta" data-aos="fade-up" data-aos-delay="600">
-                    <a href="#projects" class="btn btn-primary">Voir mes Projets</a>
-                    <a href="#contact" class="btn btn-secondary">Me Contacter</a>
-                </div>
-            </div>
-            <div class="hero-image" data-aos="zoom-in" data-aos-delay="300">
-                <div class="blob-shape">
-                    <img src="https://i.postimg.cc/cCmxFWv7/ghjj.png" alt="Photo de Amina Koné">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">À Propos de Moi</h2>
-            <div class="about-content">
-                <div class="about-text" data-aos="fade-right" data-aos-delay="200">
-                    <h3>Votre histoire mérite d'être bien racontée.</h3>
-                    <p>Passionnée par les trésors de notre culture locale, ma mission est de donner aux artisans et aux créateurs les outils digitaux pour transformer leur passion en un business prospère. Je crois en un marketing authentique qui crée de vraies connexions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="skills">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Mes Compétences</h2>
-        <div class="skills-container">
-          <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-            <h3>Stratégie & Contenu</h3>
-            <ul>
-              <li>Calendrier Éditorial</li>
-              <li>Copywriting</li>
-              <li>Gestion de Communauté</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Mes Projets Récents</h2>
-            <div class="projects-grid">
-                <article class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-img"><img src="https://i.postimg.cc/QxNtgZT8/file-00000000cbe462309cfa73d75f72a3ed.png" alt="Projet Trésors d'Afrique"></div>
-                    <div class="project-info">
-                        <h3>"Trésors d'Afrique" - Bijoux</h3>
-                        <p>Refonte de la page Instagram et création de visuels produits pour augmenter les ventes de 40%.</p>
-                        <div class="project-links"><a href="#" target="_blank" class="btn btn-secondary">En Savoir Plus</a></div>
+    <div class="main-container">
+        <div id="control-panel">
+            <header class="panel-header">
+                <div class="logo-section">
+                    <img src="https://i.postimg.cc/wB1RX8ny/file-00000000848c61f8a4258e05177b8d23.png" alt="Logo" class="generator-logo">
+                    <div class="header-text">
+                        <h1>Générateur Prestige</h1>
+                        <p>Créez un portfolio professionnel en quelques minutes</p>
                     </div>
-                </article>
-            </div>                 
-        </div>
-    </section>
-
-    
-    <section id="testimonials">
-    <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Ce que disent mes clients</h2>
-        
-        <div class="swiper testimonial-swiper" data-aos="fade-up" data-aos-delay="200">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <figure class="testimonial-card">
-                        <blockquote class="testimonial-text">"Amina a transformé notre présence en ligne. Son approche stratégique et sa créativité ont doublé notre engagement en seulement trois mois. Hautement recommandée !"</blockquote>
-                        <figcaption class="testimonial-author">
-                            <img src="https://i.postimg.cc/TwBgTr0N/202fb21b3b1567ac1714898f04cc541e-1.jpg" alt="Photo de Mariam A." class="author-photo">
-                            <div class="author-info">
-                                <p class="author-name">Jean Dupont</p>
-                                <cite class="author-title">Gérant, Trésors d'Afrique</cite>
-                            </div>
-                        </figcaption>
-                    </figure>
                 </div>
-            </div>
-            
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+            </header>
+            <main class="form-container">
+                <div class="accordion">
+                    <div class="accordion-item active">
+                        <button class="accordion-header" type="button"><span class="accordion-number">1</span><span class="accordion-title">Identité & Héro</span><i class="fas fa-chevron-down accordion-icon"></i></button>
+                        <div class="accordion-body">
+                            <div class="form-group"><label for="nomComplet">Nom Complet <span class="required">*</span></label><input type="text" id="nomComplet" placeholder="Ex: Amina Koné" required><span class="error-message"></span></div>
+                            <div class="form-group"><label for="titre">Titre / Poste <span class="required">*</span></label><input type="text" id="titre" placeholder="Ex: Stratège en Contenu Digital" required><span class="error-message"></span></div>
+                            <div class="form-group"><label for="accroche">Phrase d'accroche</label><textarea id="accroche" rows="3" placeholder="Ex: Je construis des ponts..."></textarea></div>
+                            <div class="form-group"><label for="logo">URL de votre Logo <span class="required">*</span></label><input type="url" id="logo" placeholder="https://..." required><span class="error-message"></span></div>
+                            <div class="form-group"><label for="photoProfil">URL Photo de Profil <span class="required">*</span></label><input type="url" id="photoProfil" placeholder="https://..." required><span class="error-message"></span></div>
+                        </div>
+                    </div>
+                    <div class="accordion-item"><button class="accordion-header" type="button"><span class="accordion-number">2</span><span class="accordion-title">À Propos</span><i class="fas fa-chevron-down accordion-icon"></i></button><div class="accordion-body"><div class="form-group"><label for="aboutTitre">Titre de la section</label><input type="text" id="aboutTitre" placeholder="Ex: Mon histoire, ma passion"></div><div class="form-group"><label for="aboutP">Description <span class="required">*</span></label><textarea id="aboutP" rows="5" placeholder="Décrivez votre parcours..." required></textarea><span class="error-message"></span></div></div></div>
+                    <div class="accordion-item"><button class="accordion-header" type="button"><span class="accordion-number">3</span><span class="accordion-title">Compétences <span class="required">*</span></span><i class="fas fa-chevron-down accordion-icon"></i></button><div class="accordion-body"><div id="skills-repeater" class="repeater-container"></div><button id="add-skill" class="btn-add-block" type="button"><i class="fas fa-plus"></i> Ajouter une compétence</button><span class="error-message" id="skills-error"></span></div></div>
+                    <div class="accordion-item"><button class="accordion-header" type="button"><span class="accordion-number">4</span><span class="accordion-title">Projets <span class="required">*</span></span><i class="fas fa-chevron-down accordion-icon"></i></button><div class="accordion-body"><div id="projects-repeater" class="repeater-container"></div><button id="add-project" class="btn-add-block" type="button"><i class="fas fa-plus"></i> Ajouter un projet</button><span class="error-message" id="projects-error"></span></div></div>
+                    <div class="accordion-item"><button class="accordion-header" type="button"><span class="accordion-number">5</span><span class="accordion-title">Témoignages</span><i class="fas fa-chevron-down accordion-icon"></i></button><div class="accordion-body"><div id="testimonials-repeater" class="repeater-container"></div><button id="add-testimonial" class="btn-add-block" type="button"><i class="fas fa-plus"></i> Ajouter un témoignage</button></div></div>
+                    <div class="accordion-item"><button class="accordion-header" type="button"><span class="accordion-number">6</span><span class="accordion-title">Contact <span class="required">*</span></span><i class="fas fa-chevron-down accordion-icon"></i></button><div class="accordion-body"><div class="form-group"><label for="contactIntro">Texte d'introduction</label><textarea id="contactIntro" rows="3" placeholder="Ex: Un projet, une question ?"></textarea></div><div class="form-group"><label for="whatsapp"><i class="fab fa-whatsapp"></i> Numéro WhatsApp</label><input type="tel" id="whatsapp" placeholder="Ex: 22891234567"><span class="error-message"></span></div><div class="form-group"><label for="email"><i class="fas fa-envelope"></i> Adresse Email</label><input type="email" id="email" placeholder="Ex: contact@votrenom.com"><span class="error-message" id="contact-error"></span></div></div></div>
+                    <div class="accordion-item"><button class="accordion-header" type="button"><span class="accordion-number">7</span><span class="accordion-title">Réseaux Sociaux</span><i class="fas fa-chevron-down accordion-icon"></i></button><div class="accordion-body"><div class="form-group"><label>Ajoutez vos réseaux :</label><div class="social-picker"><button class="social-btn" data-social="facebook" type="button"><i class="fab fa-facebook-f"></i> Facebook</button><button class="social-btn" data-social="instagram" type="button"><i class="fab fa-instagram"></i> Instagram</button><button class="social-btn" data-social="linkedin" type="button"><i class="fab fa-linkedin-in"></i> LinkedIn</button><button class="social-btn" data-social="tiktok" type="button"><i class="fab fa-tiktok"></i> TikTok</button></div></div><div class="social-inputs-container"><div class="social-input-wrapper" id="wrapper-facebook" style="display: none;"><div class="form-group"><label for="facebook"><i class="fab fa-facebook-f"></i> Lien Facebook</label><input type="url" id="facebook" placeholder="https://facebook.com/votrepage"></div></div><div class="social-input-wrapper" id="wrapper-instagram" style="display: none;"><div class="form-group"><label for="instagram"><i class="fab fa-instagram"></i> Lien Instagram</label><input type="url" id="instagram" placeholder="https://instagram.com/votreprofil"></div></div><div class="social-input-wrapper" id="wrapper-linkedin" style="display: none;"><div class="form-group"><label for="linkedin"><i class="fab fa-linkedin-in"></i> Lien LinkedIn</label><input type="url" id="linkedin" placeholder="https://linkedin.com/in/votreprofil"></div></div><div class="social-input-wrapper" id="wrapper-tiktok" style="display: none;"><div class="form-group"><label for="tiktok"><i class="fab fa-tiktok"></i> Lien TikTok</label><input type="url" id="tiktok" placeholder="https://tiktok.com/@votreprofil"></div></div></div></div></div>
+                    <div class="accordion-item"><button class="accordion-header" type="button"><span class="accordion-number">8</span><span class="accordion-title">Thèmes & Couleurs</span><i class="fas fa-chevron-down accordion-icon"></i></button><div class="accordion-body"><div class="form-group"><label>Choisissez une palette de couleurs</label><div class="theme-picker"><div class="theme-swatch active" data-theme="default" title="Bleu Prestige"></div><div class="theme-swatch" data-theme="foret" title="Vert Forêt"></div><div class="theme-swatch" data-theme="ocean" title="Bleu Océan"></div><div class="theme-swatch" data-theme="corail" title="Orange Corail"></div><div class="theme-swatch" data-theme="luxe" title="Noir & Gris"></div><div class="theme-swatch" data-theme="energie" title="Jaune Énergie"></div><div class="theme-swatch" data-theme="rose" title="Rose Poudré"></div><div class="theme-swatch" data-theme="violet" title="Violet Royal"></div></div></div></div></div>
+                    <div class="accordion-item"><button class="accordion-header" type="button"><span class="accordion-number">9</span><span class="accordion-title">SEO & Référencement</span><i class="fas fa-chevron-down accordion-icon"></i></button><div class="accordion-body"><div class="form-group"><label for="titrePage">Titre de la page</label><input type="text" id="titrePage" placeholder="Ex: Amina Koné - Stratège Digital"></div><div class="form-group"><label for="metaDescription">Description pour Google</label><textarea id="metaDescription" rows="3" placeholder="Description courte pour les moteurs de recherche"></textarea></div><div class="form-group"><label for="ogImage">Image de partage social</label><input type="url" id="ogImage" placeholder="URL de l'image pour le partage"><span class="error-message"></span></div></div></div>
+                </div>
+            </main>
+            <footer class="panel-footer">
+                <button id="preview-btn" class="btn-secondary" type="button"><i class="fas fa-eye"></i> Aperçu</button>
+                <div class="download-wrapper">
+                    <button id="download-btn" class="btn-primary" disabled type="button"><i class="fas fa-download"></i> Télécharger</button>
+                    <div class="validation-tooltip">Remplissez tous les champs obligatoires (*)</div>
+                </div>
+            </footer>
+        </div>
+        <div id="preview-panel">
+            <iframe srcdoc="<p>Chargement de l'aperçu...</p>" title="Aperçu du Portfolio"></iframe>
         </div>
     </div>
-</section>
-
-
-
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Contactez-moi</h2>
-            <p class="section-intro-portfolio" data-aos="fade-up" data-aos-delay="100">Un projet, une question, une opportunité ? Le chemin le plus court pour me joindre est ici.</p>
-            <div class="contact-buttons-container" data-aos="fade-up" data-aos-delay="200">
-                <a href="https://wa.me/22891234567" target="_blank" class="btn btn-primary contact-btn"><i class="fab fa-whatsapp"></i> Discutons sur WhatsApp</a>
-                <a href="mailto:contact@aminakone.com" class="btn btn-secondary contact-btn"><i class="fas fa-envelope"></i> Envoyez-moi un Email</a>
-            </div>
-        </div>
-    </section>
-  </main>
-
-  <footer class="footer-prestige">
-    <div class="container">
-      <div class="social-icons">
-        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-      </div>
-      <div class="footer-links">
-        <a href="#hero">Accueil</a> | <a href="#about">À propos</a> | <a href="#skills">Compétences</a> | <a href="#projects">Projets</a> | <a href="#testimonials">Témoignages</a> | <a href="#contact">Contact</a>
-      </div>
-      <p class="copyright">&copy; 2025 Amina Koné - Tous droits réservés</p>
-    </div>
-  </footer>
-  
-  <a href="#hero" class="back-to-top" aria-label="Retour en haut de la page">
-      <i class="fas fa-arrow-up"></i>
-  </a>
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  
+    <div id="success-modal" class="modal-overlay" style="display: none;"><div class="modal-content"><button class="close-modal" aria-label="Fermer" type="button">&times;</button><div class="modal-icon">🎉</div><h2>Félicitations !</h2><p>Votre portfolio a été généré avec succès. Vous pouvez maintenant le mettre en ligne.</p><button class="btn-primary-modal" type="button">Fermer</button></div></div>
+    
+    <button id="edit-btn" class="mobile-toggle" type="button" style="display: none;"><i class="fas fa-pencil-alt"></i> <span>Éditer</span></button>
+    
+    <script src="script-generateur.js"></script>
 </body>
 </html>
